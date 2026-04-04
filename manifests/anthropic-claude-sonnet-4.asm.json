@@ -1,0 +1,77 @@
+{
+  "asm_version": "0.2",
+  "service_id": "anthropic/claude-sonnet-4@4.0",
+  "taxonomy": "ai.llm.chat",
+  "display_name": "Claude Sonnet 4",
+  "provider": {
+    "name": "Anthropic",
+    "url": "https://www.anthropic.com",
+    "verified_by": ["google-cloud-marketplace"]
+  },
+  "capabilities": {
+    "description": "High-performance chat model with vision, tool use, and extended thinking",
+    "input_modalities": ["text", "image"],
+    "output_modalities": ["text"],
+    "supported_languages": ["en", "zh", "ja", "ko", "fr", "de", "es"],
+    "context_window": 200000
+  },
+  "pricing": {
+    "billing_dimensions": [
+      {
+        "dimension": "input_token",
+        "unit": "per_1M",
+        "cost_per_unit": 3.00,
+        "currency": "USD"
+      },
+      {
+        "dimension": "output_token",
+        "unit": "per_1M",
+        "cost_per_unit": 15.00,
+        "currency": "USD"
+      }
+    ],
+    "free_tier": null,
+    "batch_discount": 0.5
+  },
+  "quality": {
+    "metrics": [
+      {
+        "name": "LMSYS_Elo",
+        "score": 1290,
+        "scale": "Elo",
+        "benchmark": "LMSYS Chatbot Arena",
+        "benchmark_url": "https://lmarena.ai",
+        "evaluated_at": "2026-03-15",
+        "self_reported": false
+      }
+    ],
+    "leaderboard_rank": {
+      "name": "LMSYS Chatbot Arena",
+      "rank": 3,
+      "total": 150,
+      "url": "https://lmarena.ai",
+      "snapshot_date": "2026-03-15"
+    }
+  },
+  "sla": {
+    "latency_p50": "800ms",
+    "latency_p99": "3s",
+    "throughput": "80 tokens/s",
+    "uptime": 0.999,
+    "rate_limit": "4000 req/min",
+    "regions": ["us-east-1", "eu-west-1"]
+  },
+  "payment": {
+    "methods": ["api_key_prepaid", "stripe"],
+    "auth_type": "api_key",
+    "signup_url": "https://console.anthropic.com"
+  },
+  "extensions": {
+    "llm": {
+      "supports_function_calling": true,
+      "supports_vision": true,
+      "supports_extended_thinking": true,
+      "max_output_tokens": 64000
+    }
+  }
+}

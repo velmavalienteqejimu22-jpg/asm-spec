@@ -1,0 +1,76 @@
+{
+  "asm_version": "0.2",
+  "service_id": "openai/gpt-4o@2024-11-20",
+  "taxonomy": "ai.llm.chat",
+  "display_name": "GPT-4o",
+  "provider": {
+    "name": "OpenAI",
+    "url": "https://openai.com",
+    "verified_by": ["azure-marketplace"]
+  },
+  "capabilities": {
+    "description": "Multimodal flagship model with text, image, and audio understanding",
+    "input_modalities": ["text", "image", "audio"],
+    "output_modalities": ["text"],
+    "supported_languages": ["en", "zh", "ja", "ko", "fr", "de", "es", "pt", "ru", "ar"],
+    "context_window": 128000
+  },
+  "pricing": {
+    "billing_dimensions": [
+      {
+        "dimension": "input_token",
+        "unit": "per_1M",
+        "cost_per_unit": 2.50,
+        "currency": "USD"
+      },
+      {
+        "dimension": "output_token",
+        "unit": "per_1M",
+        "cost_per_unit": 10.00,
+        "currency": "USD"
+      }
+    ],
+    "batch_discount": 0.5
+  },
+  "quality": {
+    "metrics": [
+      {
+        "name": "LMSYS_Elo",
+        "score": 1285,
+        "scale": "Elo",
+        "benchmark": "LMSYS Chatbot Arena",
+        "benchmark_url": "https://lmarena.ai",
+        "evaluated_at": "2026-03-15",
+        "self_reported": false
+      }
+    ],
+    "leaderboard_rank": {
+      "name": "LMSYS Chatbot Arena",
+      "rank": 5,
+      "total": 150,
+      "url": "https://lmarena.ai",
+      "snapshot_date": "2026-03-15"
+    }
+  },
+  "sla": {
+    "latency_p50": "600ms",
+    "latency_p99": "2.5s",
+    "throughput": "100 tokens/s",
+    "uptime": 0.999,
+    "rate_limit": "10000 req/min",
+    "regions": ["us-east-1", "eu-west-1", "ap-southeast-1"]
+  },
+  "payment": {
+    "methods": ["api_key_prepaid", "stripe", "invoice"],
+    "auth_type": "api_key",
+    "signup_url": "https://platform.openai.com"
+  },
+  "extensions": {
+    "llm": {
+      "supports_function_calling": true,
+      "supports_vision": true,
+      "supports_extended_thinking": false,
+      "max_output_tokens": 16384
+    }
+  }
+}

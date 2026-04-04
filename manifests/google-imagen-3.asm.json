@@ -1,0 +1,63 @@
+{
+  "asm_version": "0.2",
+  "service_id": "google/imagen-3@3.0",
+  "taxonomy": "ai.vision.image_generation",
+  "display_name": "Imagen 3",
+  "provider": {
+    "name": "Google Cloud",
+    "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/image/overview",
+    "verified_by": ["google-cloud-marketplace"]
+  },
+  "capabilities": {
+    "description": "Google's highest quality text-to-image model with strong photorealism and prompt fidelity",
+    "input_modalities": ["text"],
+    "output_modalities": ["image"],
+    "max_output_size": "1024x1024"
+  },
+  "pricing": {
+    "billing_dimensions": [
+      {
+        "dimension": "image",
+        "unit": "per_1",
+        "cost_per_unit": 0.04,
+        "currency": "USD"
+      }
+    ],
+    "free_tier": {
+      "dimension": "image",
+      "limit": 50,
+      "period": "daily"
+    }
+  },
+  "quality": {
+    "metrics": [
+      {
+        "name": "GenAI_Bench_overall",
+        "score": 0.72,
+        "scale": "0-1",
+        "benchmark": "GenAI-Bench",
+        "self_reported": true
+      }
+    ]
+  },
+  "sla": {
+    "latency_p50": "10s",
+    "latency_p99": "25s",
+    "uptime": 0.999,
+    "regions": ["us-central1"]
+  },
+  "payment": {
+    "methods": ["api_key_prepaid", "invoice"],
+    "auth_type": "oauth2",
+    "signup_url": "https://console.cloud.google.com"
+  },
+  "extensions": {
+    "image_gen": {
+      "styles": ["photorealistic", "artistic"],
+      "supports_img2img": true,
+      "supports_inpainting": true,
+      "max_resolution": "1024x1024",
+      "supports_text_rendering": true
+    }
+  }
+}

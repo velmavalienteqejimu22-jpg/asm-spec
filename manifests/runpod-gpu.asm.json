@@ -1,0 +1,49 @@
+{
+  "asm_version": "0.2",
+  "service_id": "runpod/gpu-serverless@1.0",
+  "taxonomy": "infra.compute.gpu",
+  "display_name": "RunPod Serverless GPU",
+  "provider": {
+    "name": "RunPod",
+    "url": "https://www.runpod.io"
+  },
+  "capabilities": {
+    "description": "Serverless GPU inference with per-second billing, autoscaling, and custom container support",
+    "input_modalities": ["file", "structured_data"],
+    "output_modalities": ["file", "structured_data"]
+  },
+  "pricing": {
+    "billing_dimensions": [
+      {
+        "dimension": "gpu_second",
+        "unit": "per_1",
+        "cost_per_unit": 0.000190,
+        "currency": "USD"
+      }
+    ],
+    "estimated": true
+  },
+  "quality": {
+    "metrics": []
+  },
+  "sla": {
+    "latency_p50": "3s",
+    "latency_p99": "15s",
+    "cold_start": "~6s",
+    "uptime": 0.998,
+    "regions": ["us-east-1", "us-west-2", "eu-central-1"]
+  },
+  "payment": {
+    "methods": ["api_key_prepaid", "stripe", "crypto"],
+    "auth_type": "api_key",
+    "signup_url": "https://www.runpod.io/pricing"
+  },
+  "extensions": {
+    "compute": {
+      "gpu_types": ["NVIDIA RTX 4090", "NVIDIA A100-80GB", "NVIDIA H100"],
+      "supports_custom_models": true,
+      "supports_autoscaling": true,
+      "min_billing_increment": "1 second"
+    }
+  }
+}

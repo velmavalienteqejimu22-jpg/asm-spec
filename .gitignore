@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.DS_Store
+*.pyc
+__pycache__/
+.codebuddy/
+.env
+.venv/
+.vscode/
+.idea/
+*.tsbuildinfo
+
+# Internal docs (local only)
+调研文档.md
+冲刺计划-4月.md
+ASM曝光与学术规划.md
+论文阅读指南.md
+黑客松选择建议.md
+github-discussion-69-reply.md
+PROJECT-CONTEXT.md

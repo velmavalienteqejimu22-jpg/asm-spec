@@ -1,0 +1,62 @@
+{
+  "asm_version": "0.2",
+  "service_id": "openai/dall-e-3@3.0",
+  "taxonomy": "ai.vision.image_generation",
+  "display_name": "DALL-E 3",
+  "provider": {
+    "name": "OpenAI",
+    "url": "https://openai.com",
+    "verified_by": ["azure-marketplace"]
+  },
+  "capabilities": {
+    "description": "Text-to-image generation with strong prompt adherence and text rendering",
+    "input_modalities": ["text"],
+    "output_modalities": ["image"],
+    "max_output_size": "1792x1024"
+  },
+  "pricing": {
+    "billing_dimensions": [
+      {
+        "dimension": "image",
+        "unit": "per_1",
+        "cost_per_unit": 0.04,
+        "currency": "USD",
+        "conditions": {
+          "when": "resolution == '1792x1024' AND quality == 'hd'",
+          "cost_per_unit": 0.12
+        }
+      }
+    ]
+  },
+  "quality": {
+    "metrics": [
+      {
+        "name": "GenEval_overall",
+        "score": 0.67,
+        "scale": "0-1",
+        "benchmark": "GenEval",
+        "self_reported": false
+      }
+    ]
+  },
+  "sla": {
+    "latency_p50": "12s",
+    "latency_p99": "30s",
+    "rate_limit": "7 images/min",
+    "uptime": 0.999
+  },
+  "payment": {
+    "methods": ["api_key_prepaid", "stripe"],
+    "auth_type": "api_key",
+    "signup_url": "https://platform.openai.com"
+  },
+  "extensions": {
+    "image_gen": {
+      "styles": ["vivid", "natural"],
+      "supports_img2img": false,
+      "supports_inpainting": false,
+      "max_resolution": "1792x1024",
+      "supports_text_rendering": true
+    }
+  }
+}
